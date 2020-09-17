@@ -15,7 +15,7 @@ class m200917_095518_create_post_table extends Migration
         $this->createTable('{{%post}}', [
             'id' => $this->primaryKey(),
             'title'=>$this->string(250)->notNull(),
-            'short description'=>$this->string(400),
+            'short_description'=>$this->string(400),
             'description'=>$this->text(),
             'is_active'=>$this->boolean()->defaultValue(0),
             'create_at'=>$this->integer(),
