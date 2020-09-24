@@ -37,7 +37,7 @@ class Post extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['is_active', 'create_at', 'create_by', 'update_at', 'update_by'], 'integer'],
             [['title'], 'string', 'max' => 250],
-            [['short description'], 'string', 'max' => 400],
+            [['short_description'], 'string', 'max' => 400],
         ];
     }
 
@@ -49,7 +49,7 @@ class Post extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
-            'short description' => 'Short Description',
+            'short_description' => 'Short_Description',
             'description' => 'Description',
             'is_active' => 'Is Active',
             'create_at' => 'Create At',
