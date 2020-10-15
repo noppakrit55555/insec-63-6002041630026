@@ -42,13 +42,16 @@ class AuthAssignment extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
-        return [
-            'item_name' => 'Item Name',
-            'user_id' => 'User ID',
-            'created_at' => 'Created At',
-        ];
+        return array_merge(parent::attributeLabels(),[
+            'user_id' => 'Username',
+            'item_name' => 'Role',
+        ]);
+        // return [
+        //     'item_name' => 'Item Name',
+        //     'user_id' => 'User ID',
+        //     'created_at' => 'Created At',
+        // ];
     }
-
     /**
      * Gets query for [[ItemName]].
      *
@@ -56,6 +59,7 @@ class AuthAssignment extends \yii\db\ActiveRecord
      */
     public function getItemName()
     {
-        return $this->hasOne(AuthItem::className(), ['name' => 'item_name']);
+        return $this->hasOne(AuthItem::className(),['name'=>'item_name']);
     }
+        
 }
