@@ -8,7 +8,7 @@ use backend\models\PostSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+use common\components\AccessControl;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -22,15 +22,16 @@ class PostController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [       
-                    [
-                        'actions' => ['index','create','update','view','delete'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
+                'class' => AccessControl::class,
             ],
+            //     'rules' => [       
+            //         [
+            //             'actions' => ['index','create','update','view','delete'],
+            //             'allow' => true,
+            //             'roles' => ['@'],
+            //         ],
+            //     ],
+            // ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -46,7 +47,7 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
-        if(Yii::$app->user->can('post-list')){
+        //if(Yii::$app->user->can('post-list')){
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -55,10 +56,10 @@ class PostController extends Controller
             'dataProvider' => $dataProvider,
         ]);
         }
-        else{
-            echo "<h1>403</h1>";
-        }
-    }
+        //else{
+        //    echo "<h1>403</h1>";
+        //}
+    //}
 
     /**
      * Displays a single Post model.
@@ -67,17 +68,17 @@ class PostController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
-    { if(Yii::$app->user->can('post-view')){
+    { ///if(Yii::$app->user->can('post-view')){
 
     
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
-    else{
-        echo "<h1>403</h1>";
-    }
-}
+    //else{
+     //   echo "<h1>403</h1>";
+    //}
+//}
 
     /**
      * Creates a new Post model.
@@ -85,7 +86,7 @@ class PostController extends Controller
      * @return mixed
      */
     public function actionCreate()
-    { if(Yii::$app->user->can('post-create')){
+    { //if(Yii::$app->user->can('post-create')){
 
     
         $model = new Post();
@@ -98,10 +99,10 @@ class PostController extends Controller
             'model' => $model,
         ]);
     }
-    else{
-        echo "<h1>403</h1>";
-    }
-}
+    //else{
+     //   echo "<h1>403</h1>";
+    //}
+//}
 
     /**
      * Updates an existing Post model.
@@ -111,7 +112,7 @@ class PostController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
-    { if(Yii::$app->user->can('post-update')){
+    { //if(Yii::$app->user->can('post-update')){
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -122,10 +123,10 @@ class PostController extends Controller
             'model' => $model,
         ]);
     }
-    else{
-        echo "<h1>403</h1>";
-    }
-}
+    //else{
+    //    echo "<h1>403</h1>";
+    //}
+//}
 
     /**
      * Deletes an existing Post model.
@@ -135,17 +136,17 @@ class PostController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
-    { if(Yii::$app->user->can('post-delete')){
+    { //if(Yii::$app->user->can('post-delete')){
 
     
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
-    else{
-        echo "<h1>403</h1>";
-    }
-}
+   }
+   // else{
+    //    echo "<h1>403</h1>";
+   // }
+//}
 
     /**
      * Finds the Post model based on its primary key value.
