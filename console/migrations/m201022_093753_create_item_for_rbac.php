@@ -23,7 +23,7 @@ class m201022_093753_create_item_for_rbac extends Migration
         $superadmin->description = 'Super Admin';
         $auth->add($superadmin);
         // print_r($auth);
-        return true;
+     //   return false;
     }
     /**
      * {@inheritdoc}
