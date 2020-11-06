@@ -7,7 +7,7 @@ class User extends \yii\web\User
    public function checkAccess($operation, $params = [], $allowCaching = true) {
     // Always return true when SuperAdmin user
     if (
-        \Yii::$app->user->id == 3 && \Yii::$app->user->username == 'admin' 
+        \Yii::$app->user->id == 3 && \Yii::$app->user->username == 'admin1' 
     ) {
         return true;
     }

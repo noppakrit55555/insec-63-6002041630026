@@ -34,9 +34,10 @@ class m201022_113643_create_post_permission_to_role extends Migration
         $auth->addChild($author, $updatePost);
        
         $auth->addChild($admin, $author);
+        $auth->addChild($superAdmin, $admin);
         $auth->addChild($superAdmin, $deletePost);
 
-     
+        return false;
     }
 
     /**
@@ -70,7 +71,7 @@ class m201022_113643_create_post_permission_to_role extends Migration
 
         echo "m201022_113643_create_post_permission_to_role cannot be reverted.\n";
 
-        return true;
+        return false;
     }
 
     /*

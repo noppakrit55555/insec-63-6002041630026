@@ -33,6 +33,8 @@ class m201022_105520_create_permission_of_post extends Migration
         $view = $auth->createPermission('post-view');
         $view->description = 'view a Post';
         $auth->add($view);
+
+        return false;
     }
 
     /**
@@ -65,7 +67,7 @@ class m201022_105520_create_permission_of_post extends Migration
 
         echo "m201022_105520_create_permission_of_post cannot be reverted.\n";
 
-        return true;
+        return false;
     }
 
     /*
